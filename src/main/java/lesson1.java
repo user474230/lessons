@@ -1,8 +1,10 @@
 import java.util.Arrays;
 
+
 public class lesson1 {
     public static void main(String[] args) {
-        case10(280);
+        System.out.println(case11(new int[]{2, 2, 2, 1, 2, 2, 10, 1}));
+        System.out.println(case11(new int[]{1, 1, 1, 2, 1}));
     }
 
     //+ 1.Написать метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах
@@ -105,5 +107,32 @@ public class lesson1 {
             result = false;
         }
         System.out.println(result ? "Високосный" : "Не високосный");
+    }
+
+    //* Написать метод, в который передается не пустой одномерный целочисленный массив,
+    // метод должен вернуть true, если в массиве есть место, в котором сумма левой и правой части массива равны.
+    // Примеры: checkBalance([2, 2, 2, 1, 2, 2, || 10, 1]) → true,
+    // checkBalance([1, 1, 1, || 2, 1]) → true, граница показана символами ||,
+    // эти символы в массив не входят.
+    public static boolean case11(int[] array) {
+        int leftInd = -1;
+        int rightInd = array.length;
+        int res = 0;
+        while (true) {
+            if (res < 0) {
+                leftInd++;
+                if (leftInd == rightInd) {
+                    break;
+                }
+                res += array[leftInd];
+            } else {
+                rightInd--;
+                if (leftInd == rightInd) {
+                    break;
+                }
+                res -= array[rightInd];
+            }
+        }
+        return res == 0;
     }
 }
