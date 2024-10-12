@@ -36,7 +36,6 @@ public class Main {
                 } catch (NumberFormatException e) {
                     throw new MyArrayDataException(String.format("Ошибка в %d %d", i, j));
                 }
-
             }
         }
         return sum;
