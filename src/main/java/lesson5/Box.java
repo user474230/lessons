@@ -17,10 +17,13 @@ class Box<T extends Fruit> {
     }
 
     public <T1 extends Fruit> boolean compare(Box<T1> box) {
-        return box.getWeight() == getWeight();
+        return Math.abs(box.getWeight() - getWeight()) < 0.0001f;
     }
 
     public void move(Box<T> box) {
+        if (box == this) {
+            return;
+        }
         list.addAll(box.list);
         box.list.clear();
     }
