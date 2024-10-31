@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-class ReflectionRepository<T> {
+class  ReflectionRepository<T> {
     private Connection connection;
     private Class<T> objClass;
     private Constructor<T> constructor;
