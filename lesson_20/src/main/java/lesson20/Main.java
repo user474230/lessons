@@ -1,14 +1,26 @@
 package lesson20;
 
-//1.Создайте две сущности: пользователи (id, имя, возраст) и товары (id, название, цена).
-// Эти сущности никак не связаны друг с другом (со связями вы уже потренировались на прошлых занятиях);
-//2.Создайте по репозиторию под каждый из этих классов. Задача репозитория взаимодействовать с базой данных.
-// Реализуйте возможность сохранения объектов, загрузки по id, и загрузки всех объектов указанного типа.
-// В этом пункте следует учесть, что оба репозитория должны использовать одну и ту же SessionFactory,
-// не надо в каждом репозитории создавать свой экземпляр SessionFactory;
-//3.Добавьте уровень сервисов, который предоставляет возможность сохранения объектов, загрузки по id,
-// и загрузки всех объектов указанного типа, только сервис для этого использует репозиторий;
-//В методе main() запросите из контекста два этих сервиса, через сервисы получите список товаров
-// и пользователем и отпечатайте эти списки в консоль.
+import lesson20.configs.Config;
+import lesson20.service.CustomerService;
+import lesson20.service.ProductService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 public class Main {
+    public static void main(String[] args) {
+        var context = new AnnotationConfigApplicationContext(Config.class);
+        var customerService = context.getBean(CustomerService.class);
+        var productService = context.getBean(ProductService.class);
+//
+//        customerService.create(new Customer("qwer", 12));
+//        customerService.create(new Customer("asdf", 22));
+//
+//        productService.create(new Product("q22wer", 102));
+//        productService.create(new Product("asd33f", 220));
+
+        System.out.println(customerService.getAll());
+        System.out.println(productService.getAll());
+
+        System.out.println(customerService.getById(1L));
+        System.out.println(productService.getById(1L));
+    }
 }
