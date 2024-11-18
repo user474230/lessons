@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Spring MVC GeekApp</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div th:replace="~{navigation :: navigation(AllProducts)}"/>
+    <h1>Список товаров:</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Название</td>
+            <td>Цена</td>
+            <td>Действия</td>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="product : ${@productService.getAll()}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.title}"></td>
+            <td th:text="${product.price}"></td>
+            <td>
+                <a class="btn btn-danger" th:href="@{'/front/products-delete/' + ${product.id}}">Удалить</a>
+                <a class="btn btn-primary" th:href="@{'/front/products-edit/' + ${product.id}}">Изменить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" th:href="@{/front/products-add}">Добавить</a>
+    <br>
+    <br>
+    <span th:text="'Количество продуктов: ' + ${@productService.getAll().size()}"/>
+</div>
+</body>
+</html>

@@ -1,12 +1,64 @@
 package org.example.lesson1
 
+import java.lang.management.MemoryUsage
 import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 
 fun main() {
-    println(case11(arrayOf(2,2,2,1,2,2,10,1)))
-    println(case11(arrayOf(1,1,1,2,1)))
+//    val letters = 'A'..'z' union 'А'..'я' union setOf('ё', 'Ё')
+//    val shielded = setOf('\\', '\"')
+    var str = "{\"Краснодар \r\nSTD Поступление \r\n私わたしワタシ\t\tзаработной платы/иных выплат Salary по реестру №Z_0000115902_20240918_200079 от 2024-09-18. Без НДС.\",\n" +
+            "  \"PAYMENTCONDITION\" : \"1\",\n" +
+            "  \"CURRENCYCODE\" : \"643\"\n" +
+            "}"
+    println(str)
+//
+//    val builder = StringBuilder()
+//    var lastCharIsSpace = false
+//    str.forEach { char ->
+//        when {
+//            Character.isLetter(char) -> if (char in letters) {
+//                    builder.append(char)
+//                    lastCharIsSpace = false
+//            }
+            Character.isWhitespace(char) -> if (!lastCharIsSpace) {
+//                    builder.append(' ')
+//                    lastCharIsSpace = true
+//            }
+//            char == '\"' || char == '\\' -> {
+//                builder.append('\\').append(char)
+//                lastCharIsSpace = false
+//            }
+//            else -> {
+//                builder.append(char)
+//                lastCharIsSpace = false
+//            }
+//        }
+//    }
+//    println(builder.toString())
+
+  //  ar complianceContainerRaw = executorService.envelopeCreate(it)
+//    str = str.replace("[\\r\\n\\t\\f\\v]".toRegex(), "")
+        //.replace("[\"\\/]",){ matchResult : MatchResult -> matchResult.value }
+  //  complianceContainer = "\\\"PRIMARY_DETAILS\\\""
+    println(str)
+
+//    val value = StringBuilder(str)
+//        .filter { char ->
+//            when {
+//                Character.isLetter(char) -> char in letters
+//                Character.isWhitespace(char) -> char == ' '
+//                else -> true
+//            }
+//        }.replace(Regex("\\s+"), " ")
+//        .map { char -> when {
+//                char in shielded -> "\\$char"
+//                else -> char
+//            }
+//        }.joinToString("")
+//    println(value)
+//    println(value.replace(Regex("\\s+"), " "))
 }
 
 //+ 1.Написать метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах
