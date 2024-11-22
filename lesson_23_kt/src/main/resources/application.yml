@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /app
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres?currentSchema=book_store
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
