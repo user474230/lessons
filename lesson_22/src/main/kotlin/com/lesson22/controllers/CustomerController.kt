@@ -1,6 +1,7 @@
 package com.lesson22.controllers
 
 import com.lesson22.entities.Customer
+import com.lesson22.entities.MyType
 import com.lesson22.services.CustomerService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
@@ -15,7 +16,10 @@ class CustomerController (val customerService: CustomerService) {
     fun getAll() = customerService.getAll()
 
     @GetMapping("/create")
-    fun create(@ModelAttribute customer: Customer) = customerService.create(customer)
+    fun create(@ModelAttribute customer: Customer) {
+        customer.test = MyType(string2 = "qwe", long = 1L)
+        customerService.create(customer)
+    }
 
     @GetMapping("/delete/{id}")
     fun delete(@PathVariable id: Long) = customerService.delete(id)

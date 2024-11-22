@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AmplicodePersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="demo" name="Default">
+        <packages>
+          <package value="com.lesson22java" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="demo (1) (com)" name="Default">
+        <packages>
+          <package value="com.lesson23kt" />
+        </packages>
+      </persistence-unit>
+      <persistence-unit moduleName="lesson22" name="Default">
+        <packages>
+          <package value="com.lesson22" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

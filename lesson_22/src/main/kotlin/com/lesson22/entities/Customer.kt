@@ -18,4 +18,13 @@ data class Customer (
     var fio: String? = null,
     @Column(name = "age")
     var age: Int? = null,
+    //@Type(type = "jsonb")
+    @Column(name = "test", columnDefinition = "jsonb")
+    var test: MyType? = null
+)
+
+data class MyType (
+    var long: Long? = null,
+    var string: String? = null,
+    var string2: String? = null
 )
